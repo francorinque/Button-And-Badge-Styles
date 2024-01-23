@@ -1,0 +1,43 @@
+@import url("https://fonts.googleapis.com/css2?family=Onest:wght@300;600;900&display=swap");
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --primary: #f0f0f0;
+  --secundary: #242132;
+}
+
+body {
+  background: var(--secundary);
+  color: var(--primary);
+  min-width: 0;
+  min-height: 100vh;
+  font-family: "Onest", sans-serif;
+}
+
+.app {
+  padding: 50px 10px;
+}
+
+.glassmorphim {
+  background-color: rgba(150, 132, 253, 0.077);
+  border-radius: 16px;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(150, 132, 253, 0.429);
+}
+
+.title {
+  @apply text-4xl text-balance text-center my-5 font-bold bg-gradient-to-r from-[#F0F0F0] to-[#9784FD] bg-clip-text text-transparent md:text-5xl max-w-[600px] mx-auto leading-[1.2] md:leading-[1.2];
+}
