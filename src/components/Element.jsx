@@ -1,8 +1,8 @@
 import { useState } from "react"
 
-const INITIAL_STATE = "Copy css"
+const INITIAL_STATE = "Copy"
 
-const Element = ({ classBtn }) => {
+const Element = ({ classBtn, category }) => {
   const [isHover, setIsHover] = useState(false)
   const [textBtn, setTextBtn] = useState(INITIAL_STATE)
 
@@ -10,7 +10,6 @@ const Element = ({ classBtn }) => {
 
   const handleClick = () => {
     navigator.clipboard.writeText(classFixed).then(() => setTextBtn("Copied"))
-
     setTimeout(() => {
       setTextBtn(INITIAL_STATE)
     }, 1000)
@@ -18,22 +17,25 @@ const Element = ({ classBtn }) => {
 
   return (
     <button
-      className={`border-none w-[150px] rounded-[4px]  shadow-sm text-center hover:scale-110 transition duration-200  ${classBtn} `}
+      className={` relative ${classBtn} `}
       onClick={handleClick}
       onMouseOver={() => setIsHover(true)}
       onMouseLeave={() => setIsHover(false)}
     >
-      {isHover ? (
-        <span
-          className="
-          animate-pulse animate-thrice
-        "
-        >
-          {textBtn}
-        </span>
-      ) : (
-        <span>Button</span>
-      )}
+      <span
+        className={`transition-opacity duration-300 absolute top-[50%] left-[50%] translate-x-[-50%] translate-y-[-50%] ${
+          isHover ? "opacity-100" : "opacity-0"
+        }`}
+      >
+        {textBtn}
+      </span>
+      <span
+        className={`transition-opacity duration-300 absolute top-[50%] left-[50%] translate-x-[-50%] translate-y-[-50%] ${
+          isHover ? "opacity-0" : "opacity-100"
+        }`}
+      >
+        {category}
+      </span>
     </button>
   )
 }

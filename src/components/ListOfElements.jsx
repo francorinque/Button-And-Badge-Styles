@@ -9,11 +9,11 @@ const ListOfElements = () => {
   return (
     <div
       className="w-full p-8 mt-10
-       grid grid-cols-elements gap-10 justify-center
-    "
+      flex flex-wrap justify-center
+      gap-5"
     >
       {ELEMENTS[category].map((btn) => (
-        <Element key={btn.id} classBtn={btn.classBtn} />
+        <Element key={btn.id} classBtn={btn.classBtn} {...btn} />
       ))}
     </div>
   )
