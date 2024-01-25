@@ -12,8 +12,8 @@ const ListOfElements = () => {
       flex flex-wrap justify-center
       gap-5"
     >
-      {ELEMENTS[category].map((btn) => (
-        <Element key={btn.id} classBtn={btn.classBtn} {...btn} />
+      {ELEMENTS[category].map((el) => (
+        <Element key={el.id} classElement={el.classElement} {...el} />
       ))}
     </div>
   )

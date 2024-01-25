@@ -1,38 +1,21 @@
 import { v4 as uuidv4 } from "uuid"
 import { CATEGORIES } from "./categories"
+import { classOfBadges, classOfButtons } from "./arrayOfClass"
 
-const CLASS_BADGE = "px-10 py-2.5 text-xs rounded-full"
-const CLASS_BUTTON =
-  " border-none w-[150px] py-4 rounded-[4px] text-center hover:scale-110 transition duration-200 "
+// create array of elements with id, text and class
+const buttonsArray = classOfButtons.map((btn) => ({
+  id: uuidv4(),
+  text: "Button",
+  classElement: `${btn} w-[120px] font-bold py-1 px-8`,
+}))
+
+const badgesArray = classOfBadges.map((badge) => ({
+  id: uuidv4(),
+  text: "Badge",
+  classElement: `${badge} px-2.5 py-1 rounded text-sm`,
+}))
 
 export const ELEMENTS = {
-  [CATEGORIES.BUTTONS]: [
-    {
-      id: uuidv4(),
-      category: "Button",
-      classBtn: `bg-blue-500 text-white ${CLASS_BUTTON}`,
-    },
-    {
-      id: uuidv4(),
-      category: "Button",
-      classBtn: `bg-teal-500 text-neutral-100 ${CLASS_BUTTON}`,
-    },
-  ],
-  [CATEGORIES.BADGES]: [
-    {
-      id: uuidv4(),
-      category: "Badge",
-      classBtn: `bg-blue-100 text-blue-800  ${CLASS_BADGE}`,
-    },
-    {
-      id: uuidv4(),
-      category: "Badge",
-      classBtn: `bg-green-100 text-green-800  ${CLASS_BADGE}`,
-    },
-    {
-      id: uuidv4(),
-      category: "Badge",
-      classBtn: `bg-pink-100 text-pink-800  ${CLASS_BADGE}`,
-    },
-  ],
+  [CATEGORIES.BUTTONS]: buttonsArray,
+  [CATEGORIES.BADGES]: badgesArray,
 }

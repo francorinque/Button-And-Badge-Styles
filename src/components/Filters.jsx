@@ -5,15 +5,16 @@ const Filters = () => {
   const { setCategory } = useAppContext()
 
   return (
-    <nav className="flex justify-center items-center gap-x-4 my-14">
+    <nav className="flex justify-center items-center gap-x-4  mb-20">
       {Object.values(CATEGORIES).map((cat) => (
         <button
           onClick={() => setCategory(cat)}
           key={crypto.randomUUID()}
           className="
             text-1xl font-semibold border-none  
-            py-2 px-8 rounded-full
+            py-1 px-8 rounded
             bg-gradient-to-br from-[#F0F0F0] to-[#9784FD] text-[#554a92]
+            outline outline-1 outline-[#554a92]
             hover:scale-110 transition duration-200
           "
         >
