@@ -27,3 +27,25 @@ body {
 .app {
   padding: 30px 10px;
 }
+
+.title {
+  @apply text-4xl text-balance text-center my-5 font-semibold bg-gradient-to-r from-[#F0F0F0] to-[#9784FD] bg-clip-text text-transparent md:text-6xl max-w-[700px] mx-auto leading-[1.2] md:leading-[1.2] animate-fade-up animate-once animate-normal animate-fill-both;
+}
+
+.list-wrapper {
+  @apply w-full p-8 mt-10
+  flex flex-wrap justify-center
+  gap-5;
+}
+
+.filters-wrapper {
+  @apply flex justify-center items-center gap-x-4  mb-20;
+}
+
+.filters_btn {
+  @apply text-xl font-semibold border-none  
+  py-1 px-8 rounded
+  bg-gradient-to-br from-[#F0F0F0] to-[#9784FD] text-[#554a92]
+  outline outline-1 outline-[#554a92]
+  hover:scale-110 transition duration-200;
+}

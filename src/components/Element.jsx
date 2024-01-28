@@ -13,7 +13,7 @@ const Element = ({ classElement, text }) => {
       .writeText(classFixed)
       .then(() => setTextChange("Copied"))
     setTimeout(() => {
-      setTextBtn(INITIAL_STATE)
+      setTextChange(INITIAL_STATE)
     }, 1000)
   }
 

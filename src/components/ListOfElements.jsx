@@ -1,17 +1,11 @@
 import { ELEMENTS } from "../constants/elements"
-import { useAppContext } from "../context/AppContext"
+import { useSEO } from "../hooks/useSEO"
 //components
 import Element from "./Element"
 
-const ListOfElements = () => {
-  const { category } = useAppContext()
-
+const ListOfElements = ({ category }) => {
   return (
-    <div
-      className="w-full p-8 mt-10
-      flex flex-wrap justify-center
-      gap-5"
-    >
+    <div className="list-wrapper">
       {ELEMENTS[category].map((el) => (
         <Element key={el.id} classElement={el.classElement} {...el} />
       ))}

@@ -1,7 +1,10 @@
+import { useState } from "react"
 //components
 import { Circle, Filters, Footer, ListOfElements } from "./components"
 
 function App() {
+  const [category, setCategory] = useState("Buttons")
+
   return (
     <main className="app">
       {/* background */}
@@ -10,15 +13,11 @@ function App() {
         <Circle classCircle="left-0 bottom-0" />
       </>
       {/* content */}
-      <h1
-        className="
-      text-4xl text-balance text-center my-5 font-semibold bg-gradient-to-r from-[#F0F0F0] to-[#9784FD] bg-clip-text text-transparent md:text-6xl max-w-[700px] mx-auto leading-[1.2] md:leading-[1.2] animate-fade-up animate-once animate-normal animate-fill-both 
-      "
-      >
+      <h1 className="title">
         Explore and copy <strong>Button & Badge</strong> Styles
       </h1>
-      <Filters />
-      <ListOfElements />
+      <Filters setCategory={setCategory} />
+      <ListOfElements category={category} />
       {/* footer */}
       <Footer />
     </main>
