@@ -1,5 +1,4 @@
 import { ELEMENTS } from "../constants/elements"
-import { useSEO } from "../hooks/useSEO"
 //components
 import Element from "./Element"
 
