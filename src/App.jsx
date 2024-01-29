@@ -13,10 +13,12 @@ function App() {
         <Circle classCircle="left-0 bottom-0" />
       </>
       {/* content */}
-      <h1 className="title">
-        Explore and copy <strong>Button & Badge</strong> Styles
-      </h1>
-      <Filters setCategory={setCategory} />
+      <header>
+        <h1 className="title">
+          Explore and copy <strong>Button & Badge</strong> Styles
+        </h1>
+        <Filters category={category} setCategory={setCategory} />
+      </header>
       <ListOfElements category={category} />
       {/* footer */}
       <Footer />

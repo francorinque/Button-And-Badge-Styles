@@ -6,13 +6,13 @@ import { classOfBadges, classOfButtons } from "./arrayOfClass"
 const buttonsArray = classOfButtons.map((btn) => ({
   id: uuidv4(),
   text: "Button",
-  classElement: `${btn} w-[120px] font-bold py-1 px-8`,
+  classElement: `${btn} min-w-[120px] font-bold py-1 px-8`,
 }))
 
 const badgesArray = classOfBadges.map((badge) => ({
   id: uuidv4(),
   text: "Badge",
-  classElement: `${badge} px-2.5 py-1 rounded text-sm`,
+  classElement: `${badge} min-w-[80px]  p-1 rounded text-sm`,
 }))
 
 export const ELEMENTS = {
