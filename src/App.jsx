@@ -1,9 +1,10 @@
-import { useState } from "react"
+import { useState } from "react";
 //components
-import { Circle, Filters, Footer, ListOfElements } from "./components"
+import { Circle, Filters, Footer, ListOfElements } from "./components";
 
 function App() {
-  const [category, setCategory] = useState("Buttons")
+  const [category, setCategory] = useState("Inputs");
+  // const [category, setCategory] = useState("Buttons")
 
   return (
     <main className="app">
@@ -14,16 +15,14 @@ function App() {
       </>
       {/* content */}
       <header>
-        <h1 className="title">
-          Explore and copy <strong>Button & Badge</strong> Styles
-        </h1>
+        <h1 className="title">Explore and copy Button & Badge Styles</h1>
         <Filters category={category} setCategory={setCategory} />
       </header>
       <ListOfElements category={category} />
       {/* footer */}
       <Footer />
     </main>
-  )
+  );
 }
 
-export default App
+export default App;
