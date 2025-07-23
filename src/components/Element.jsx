@@ -46,14 +46,3 @@ const Element = ({ classElement, text, category }) => {
 };
 
 export default Element;
-
-// return (
-//   <button
-//     className={`relative ${classElement} `}
-//     onClick={handleClick}
-// onMouseEnter={() => setIsHovered(true)}
-// onMouseLeave={() => setIsHovered(false)}
-//   >
-//     {isHovered ? textChange : text}
-//   </button>
-// )

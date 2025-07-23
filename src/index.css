@@ -1,46 +1,51 @@
 @import url("https://fonts.googleapis.com/css2?family=Onest:wght@300;600;900&display=swap");
 
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
-
-*,
-*::before,
-*::after {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-
-:root {
-  --primary: #f0f0f0;
-  --secundary: #242132;
-}
+@import "tailwindcss";
+@import "tailwindcss-animated";
 
 body {
   height: 100vh;
-  background: var(--secundary);
-  color: var(--primary);
+  background: #181818;
+  color: #f8f8f8;
   min-width: 0;
   font-family: "Onest", sans-serif;
+}
+
+button {
+  @apply cursor-pointer;
 }
 
 header {
   @apply flex flex-col items-center justify-center flex-1;
 }
 
-.app {
-  @apply px-4 py-5 flex flex-col mx-auto max-w-7xl items-center justify-center min-h-screen gap-20;
+@layer components {
+  .app {
+    @apply px-4 py-5 flex flex-col mx-auto max-w-7xl items-center justify-center min-h-screen gap-20;
+  }
+
+  .title {
+    @apply font-semibold max-sm:text-[3rem] text-6xl leading-[1.2] animate-fade-down animate-once  max-w-[700px] text-center text-balance;
+  }
+
+  .filters-wrapper {
+    @apply flex justify-center items-center gap-x-4;
+  }
+
+  .primary-button {
+    @apply px-4 py-2 cursor-pointer w-full min-md:w-[130px] rounded-full;
+  }
+  /* .primary-button {
+    @apply primary-gradient text-white rounded-full px-4 py-2 cursor-pointer w-full min-md:w-[130px];
+  } */
 }
 
-.title {
-  @apply text-4xl text-balance text-center  mb-5 font-semibold bg-gradient-to-r from-[#F0F0F0] to-[#9784FD] bg-clip-text text-transparent md:text-6xl max-w-[700px] mx-auto leading-[1.2] md:leading-[1.2] animate-fade-up animate-once animate-normal animate-fill-both;
+@utility text-gradient {
+  @apply bg-clip-text text-transparent bg-gradient-to-r from-slate-500 via-amber-100 to-slate-500;
+  /* @apply bg-clip-text text-transparent bg-gradient-to-r from-[#484b67] via-[#f3f6fa] to-[#484b67]; */
 }
 
-.list-wrapper {
-  @apply w-full  flex flex-wrap justify-center items-center  px-4 gap-8;
-}
-
-.filters-wrapper {
-  @apply flex justify-center items-center gap-x-4;
+@utility primary-gradient {
+  background: linear-gradient(to bottom, #f3f6fa, #484b67);
+  box-shadow: 0px 74px 21px 0px #6678ef00;
 }

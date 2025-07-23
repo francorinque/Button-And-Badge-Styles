@@ -1,19 +1,21 @@
 import { CATEGORIES } from "../constants/categories";
+import { v4 as uuid } from "uuid";
+import clsx from "clsx";
 
 const Filters = ({ category, setCategory }) => {
   return (
-    <nav className="flex items-center gap-3 mt-10">
+    <nav className="flex items-center gap-3 mt-10 border border-amber-100 rounded-full">
       {Object.values(CATEGORIES).map((cat) => (
         <button
           onClick={() => setCategory(cat)}
-          key={crypto.randomUUID()}
-          className={`border border-violet-50 px-6 py-2 rounded-[8px] font-semibold 
-            hover:bg-gradient-to-r from-violet-400 to-violet-600
-            hover:text-white transition duration-200 ${
-              category === cat
-                ? "bg-gradient-to-r from-violet-400 to-violet-600"
-                : ""
-            }`}
+          key={uuid()}
+          className={`
+            primary-button hover:bg-amber-200/70 hover:text-black
+            ${
+              cat === category &&
+              "border border-amber-100 bg-amber-200 text-black"
+            }
+            `}
         >
           {cat}
         </button>
