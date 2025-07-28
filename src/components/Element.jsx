@@ -1,31 +1,48 @@
-import { useState } from "react"
+import { useState } from "react";
 
-const INITIAL_STATE = "Copy"
+const INITIAL_LABEL = "Copy css";
 
-const Element = ({ classElement, text }) => {
-  const [isHovered, setIsHovered] = useState(false)
-  const [textChange, setTextChange] = useState(INITIAL_STATE)
+const Element = ({ classElement, text, category }) => {
+  const [label, setLabel] = useState(INITIAL_LABEL);
+  const [isHovered, setIsHovered] = useState(false);
 
-  const classFixed = `className="${classElement.trim()}"`
+  // Texto a copiar: className="..."
+  const classFixed = `className="${classElement.trim()}"`;
 
-  const handleClick = () => {
-    navigator.clipboard
-      .writeText(classFixed)
-      .then(() => setTextChange("Copied"))
-    setTimeout(() => {
-      setTextChange(INITIAL_STATE)
-    }, 1000)
+  const handleCopy = () => {
+    navigator.clipboard.writeText(classFixed).then(() => setLabel("¡Copied!"));
+    setTimeout(() => setLabel(INITIAL_LABEL), 1000);
+  };
+
+  // Props comunes para ambos casos
+  const interactiveProps = {
+    onClick: handleCopy,
+    onMouseEnter: () => setLabel("Click to copy"),
+    onMouseLeave: () => setLabel(INITIAL_LABEL),
+    className: `relative ${classElement}`,
+  };
+
+  // Si text es "inputs", devolvemos un <input>, si no un <button>
+  if (category === "Inputs") {
+    return (
+      <input
+        {...interactiveProps}
+        type="text"
+        placeholder={label === INITIAL_LABEL ? "Nice to meet you!" : label}
+        readOnly
+      />
+    );
   }
 
   return (
     <button
-      className={`relative ${classElement} `}
-      onClick={handleClick}
+      {...interactiveProps}
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
     >
-      {isHovered ? textChange : text}
+      {isHovered ? label : text}
     </button>
-  )
-}
-export default Element
+  );
+};
+
+export default Element;
